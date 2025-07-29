@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
   <title>電話対応マニュアル</title>
   <style>
+    * { font-family: "Zen Kaku Gothic New", sans-serif; font-style: normal; font-weight: 500; }
     body { font-family: "Noto Sans JP", sans-serif; margin: 20px; }
     .tabs, .sub-tabs { display: flex; gap: 10px; margin-bottom: 10px; }
     button { padding: 5px 10px; cursor: pointer; }
@@ -19,6 +20,26 @@
     }
     p{
         font-size: 0.8rem;
+    }
+    .flex-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    }
+
+    .left-pane {
+    flex: 3; /* 約3/4 */
+    }
+
+    .right-pane {
+    flex: 1; /* 約1/4 */
+    display: flex;
+    flex-direction: column;
+    }
+
+    .right-pane textarea {
+    height: 500px;
+    resize: vertical;
     }
   </style>
 </head>
@@ -35,50 +56,61 @@
   <!-- 関係会社用 -->
   <div id="company" class="tab-content">
     <h2>関係会社用マニュアル</h2>
-    <table border="1px" style="border-collapse:collapse; height: auto;">
-        <tr>
-            <th>お客様</th><th>スタッフ</th>
-        </tr>
-        <tr>
-            <td><br>大変お世話になっております。株式会社toneの山田と申します。<br><br>長尾社長はお手すきでしょうか？</td><td>はい。オークスでございます<br><br>いつもお世話になっております。<br><br>はい、少々お待ち下さいませ。一旦保留にさせて頂きます。</td>
-        </tr>
-    </table>
-    <p style="font-size:0.8rem;">※もし、名前をちゃんと聞き取れなかったら…<br>
-        おそれいますが、もう一度会社様とご担当者様のお名前をお伺いしてもよろしいでしょうか？」<br>
-        「株式会社toneの山田様でございますね。いつもお世話になっております。」<br>
-        と、いうかんじで聞いた後に、復唱したほうが丁寧です。
-    </p>
-    <table border="1px" style="border-collapse:collapse; height: auto;">
-        <tr>
-            <th>お客様</th><th>スタッフ</th>
-        </tr>
-        <tr>
-            <td><br>大変お世話になっております。株式会社toneの山田と申します。<br><br>長尾社長はお手すきでしょうか？</td><td>はい。オークスでございます<br><br>いつもお世話になっております。<br><br>対応①<br>大変申し訳ございません。現在、席を外しております。<br>わたくしでよろしければご伝言を承りますが、いかが致しましょうか？<br><br>対応②<br>大変申し訳ございません。現在、他の電話にて対応中でございます。<br>終わり次第折返しお電話させて頂きますが、よろしいでしょうか？ <br></td>
-        </tr>
-    </table>
-    <h3>保留が長引きそうな時…</h3>
-    <p>
-        「お待たせして申し訳ございません。お調べするのに時間がかかりますので、折返しお電話させて頂いてもよろしいでしょうか？」<br>
-        相手が承諾したら…「大変恐れ入ります。折り返し先のお電話番号をお伺いしてもよろしいでしょうか？」で、電話番号を聞き、復唱する。<br>
-        「こちらの番号に折返しさせて頂きます。今からのお時間、ご都合の良い時間帯はございますでしょうか？」時間を聞いてあげるとより親切で好印象。<br>
-        時間を聞いたら「では、14時に改めてお電話させて頂きますので、よろしくお願い致します。それでは一旦失礼致します。」<br>
-    </p>
-    <h3>電話をかけている相手への配慮（毎回する必要はなし）</h3>
-    <p>
-        クレーム等で相手が怒っている時に、少しクールダウンさせたり、気遣いを見せる時に使えばOK<br>
-        ※電話をかけている方に料金がかかるため。<br>
-        「頂いているお電話でございますので、こちらからお掛け直しいたしましょうか？」<br>
-    </p>
-    <h4>□こちらから電話をかける時</h4>
-    <p>
-    ・取引先等のお客様以外<br>
-    「お世話になっております。オークス株式会社の〇〇と申します。」<br>
-    「お忙しいところ申し訳ございません。ご担当の〇〇様はお手すきでいらっしゃいますでしょうか？」<br>
-    ・お客様<br>
-    例）「〇〇様のお電話でお間違いないでしょうか？わたくし、楽天市場に出店しておりますイータイムスと申します。サイズ交換の件でご連絡させて頂きました。今お時間大丈夫でしょうか？」<br>
-    </p>
-    <textarea id="memo-company" placeholder="メモを入力..."></textarea>
-    <button onclick="saveMemo('memo-company')">保存</button>
+    <div class="flex-container">
+        <!-- 左：PDF表示 -->
+        <div class="left-pane">
+            <table border="1px" style="border-collapse:collapse; height: auto;">
+                <tr>
+                    <th>お客様</th><th>スタッフ</th>
+                </tr>
+                <tr>
+                    <td><br>大変お世話になっております。株式会社toneの山田と申します。<br><br>長尾社長はお手すきでしょうか？</td><td>はい。オークスでございます<br><br>いつもお世話になっております。<br><br>はい、少々お待ち下さいませ。一旦保留にさせて頂きます。</td>
+                </tr>
+            </table>
+            <p style="font-size:0.8rem;">※もし、名前をちゃんと聞き取れなかったら…<br>
+                おそれいますが、もう一度会社様とご担当者様のお名前をお伺いしてもよろしいでしょうか？」<br>
+                「株式会社toneの山田様でございますね。いつもお世話になっております。」<br>
+                と、いうかんじで聞いた後に、復唱したほうが丁寧です。
+            </p>
+            <table border="1px" style="border-collapse:collapse; height: auto;">
+                <tr>
+                    <th>お客様</th><th>スタッフ</th>
+                </tr>
+                <tr>
+                    <td><br>大変お世話になっております。株式会社toneの山田と申します。<br><br>長尾社長はお手すきでしょうか？</td><td>はい。オークスでございます<br><br>いつもお世話になっております。<br><br>対応①<br>大変申し訳ございません。現在、席を外しております。<br>わたくしでよろしければご伝言を承りますが、いかが致しましょうか？<br><br>対応②<br>大変申し訳ございません。現在、他の電話にて対応中でございます。<br>終わり次第折返しお電話させて頂きますが、よろしいでしょうか？ <br></td>
+                </tr>
+            </table>
+            <h3>保留が長引きそうな時…</h3>
+            <p>
+                「お待たせして申し訳ございません。お調べするのに時間がかかりますので、折返しお電話させて頂いてもよろしいでしょうか？」<br>
+                相手が承諾したら…「大変恐れ入ります。折り返し先のお電話番号をお伺いしてもよろしいでしょうか？」で、電話番号を聞き、復唱する。<br>
+                「こちらの番号に折返しさせて頂きます。今からのお時間、ご都合の良い時間帯はございますでしょうか？」時間を聞いてあげるとより親切で好印象。<br>
+                時間を聞いたら「では、14時に改めてお電話させて頂きますので、よろしくお願い致します。それでは一旦失礼致します。」<br>
+            </p>
+            <h3>電話をかけている相手への配慮（毎回する必要はなし）</h3>
+            <p>
+                クレーム等で相手が怒っている時に、少しクールダウンさせたり、気遣いを見せる時に使えばOK<br>
+                ※電話をかけている方に料金がかかるため。<br>
+                「頂いているお電話でございますので、こちらからお掛け直しいたしましょうか？」<br>
+            </p>
+            <h4>□こちらから電話をかける時</h4>
+            <p>
+            ・取引先等のお客様以外<br>
+            「お世話になっております。オークス株式会社の〇〇と申します。」<br>
+            「お忙しいところ申し訳ございません。ご担当の〇〇様はお手すきでいらっしゃいますでしょうか？」<br>
+            ・お客様<br>
+            例）「〇〇様のお電話でお間違いないでしょうか？わたくし、楽天市場に出店しておりますイータイムスと申します。サイズ交換の件でご連絡させて頂きました。今お時間大丈夫でしょうか？」<br>
+            </p>
+          </div>
+    
+        <!-- 右：メモ -->
+        <div class="right-pane">
+          <div style="position: fixed; text-align: right;">
+              <textarea id="memo-size-color" placeholder="メモを入力..."></textarea>
+              <button onclick="saveMemo('memo-size-color')">保存</button>
+          </div>
+        </div>
+      </div>
   </div>
 
   <!-- 購入者用 -->
@@ -98,45 +130,128 @@
     <!-- 各サブコンテンツ -->
     <div id="defect-exchange" class="tab-content sub-content">
       <h3>不良（交換）</h3>
-      <iframe src="不良・破損_交換.pdf" width="100%" height="600px" style="border: none;"></iframe>
-      <textarea id="memo-defect-exchange" placeholder="メモを入力..."></textarea>
-      <button onclick="saveMemo('memo-defect-exchange')">保存</button>
+      <div class="flex-container">
+        <!-- 左：PDF表示 -->
+        <div class="left-pane">
+          <iframe src="不良・破損_交換.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="送り間違い_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="送り間違い_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+    
+        <!-- 右：メモ -->
+        <div class="right-pane">
+          <div style="position: fixed; text-align: right;">
+              <textarea id="memo-size-color" placeholder="メモを入力..."></textarea>
+              <button onclick="saveMemo('memo-size-color')">保存</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="defect-return" class="tab-content sub-content">
       <h3>不良（返品）</h3>
-      <iframe src="不良・破損_返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
-      <textarea id="memo-defect-return" placeholder="メモを入力..."></textarea>
-      <button onclick="saveMemo('memo-defect-return')">保存</button>
+      <div class="flex-container">
+        <!-- 左：PDF表示 -->
+        <div class="left-pane">
+            <iframe src="不良・破損_返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="送り間違い_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="送り間違い_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+    
+        <!-- 右：メモ -->
+        <div class="right-pane">
+          <div style="position: fixed; text-align: right;">
+              <textarea id="memo-size-color" placeholder="メモを入力..."></textarea>
+              <button onclick="saveMemo('memo-size-color')">保存</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="mistake-exchange" class="tab-content sub-content">
       <h3>送り間違い（交換）</h3>
-      <iframe src="送り間違い_交換.pdf" width="100%" height="600px" style="border: none;"></iframe>
-      <textarea id="memo-mistake-exchange" placeholder="メモを入力..."></textarea>
-      <button onclick="saveMemo('memo-mistake-exchange')">保存</button>
+      <div class="flex-container">
+        <!-- 左：PDF表示 -->
+        <div class="left-pane">
+          <iframe src="送り間違い_交換.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="送り間違い_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="送り間違い_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+    
+        <!-- 右：メモ -->
+        <div class="right-pane">
+          <div style="position: fixed; text-align: right;">
+              <textarea id="memo-size-color" placeholder="メモを入力..."></textarea>
+              <button onclick="saveMemo('memo-size-color')">保存</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="mistake-return" class="tab-content sub-content">
       <h3>送り間違い（返品）</h3>
-      <iframe src="送り間違い_返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
-      <textarea id="memo-mistake-return" placeholder="メモを入力..."></textarea>
-      <button onclick="saveMemo('memo-mistake-return')">保存</button>
+      <div class="flex-container">
+        <!-- 左：PDF表示 -->
+        <div class="left-pane">
+          <iframe src="送り間違い_返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="送り間違い_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="送り間違い_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+    
+        <!-- 右：メモ -->
+        <div class="right-pane">
+          <div style="position: fixed; text-align: right;">
+              <textarea id="memo-size-color" placeholder="メモを入力..."></textarea>
+              <button onclick="saveMemo('memo-size-color')">保存</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="return" class="tab-content sub-content">
       <h3>返品</h3>
-      <iframe src="返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
-      <textarea id="memo-return" placeholder="メモを入力..."></textarea>
-      <button onclick="saveMemo('memo-return')">保存</button>
+      <div class="flex-container">
+        <!-- 左：PDF表示 -->
+        <div class="left-pane">
+          <iframe src="返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="返品_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="返品_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="返品_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+    
+        <!-- 右：メモ -->
+        <div class="right-pane">
+          <div style="position: fixed; text-align: right;">
+              <textarea id="memo-size-color" placeholder="メモを入力..."></textarea>
+              <button onclick="saveMemo('memo-size-color')">保存</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="size-color" class="tab-content sub-content">
-      <h3>サイズ・カラー交換</h3>
-      <iframe src="サイズ・カラー交換-1.pdf" width="100%" height="600px" style="border: none;"></iframe>
-      <textarea id="memo-size-color" placeholder="メモを入力..."></textarea>
-      <button onclick="saveMemo('memo-size-color')">保存</button>
+        <h3>サイズ・カラー交換</h3>
+        <div class="flex-container">
+          <!-- 左：PDF表示 -->
+          <div class="left-pane">
+            <iframe src="サイズ・カラー交換-1.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="サイズ・カラー交換_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          </div>
+      
+          <!-- 右：メモ -->
+          <div class="right-pane">
+            <div style="position: fixed; text-align: right;">
+                <textarea id="memo-size-color" placeholder="メモを入力..."></textarea>
+                <button onclick="saveMemo('memo-size-color')">保存</button>
+            </div>
+          </div>
+        </div>
     </div>
+      
   </div>
 
   <script>
