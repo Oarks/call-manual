@@ -125,6 +125,7 @@
       <button onclick="switchSubTab('mistake-return')">送り間違い（返品）</button>
       <button onclick="switchSubTab('return')">返品</button>
       <button onclick="switchSubTab('size-color')">サイズ・カラー交換</button>
+      <button onclick="switchSubTab('other')">その他</button>
     </div>
 
     <!-- 各サブコンテンツ -->
@@ -240,6 +241,25 @@
           <div class="left-pane">
             <iframe src="サイズ・カラー交換-1.pdf" width="100%" height="600px" style="border: none;"></iframe>
             <iframe src="サイズ・カラー交換_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          </div>
+      
+          <!-- 右：メモ -->
+          <div class="right-pane">
+            <div style="position: fixed; text-align: right;">
+                <textarea id="memo-size-color" placeholder="メモを入力..."></textarea>
+                <button onclick="saveMemo('memo-size-color')">保存</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="other" class="tab-content sub-content">
+        <h3>その他</h3>
+        <div class="flex-container">
+          <!-- 左：PDF表示 -->
+          <div class="left-pane">
+            <iframe src="共通.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="その他.pdf" width="100%" height="600px" style="border: none;"></iframe>
           </div>
       
           <!-- 右：メモ -->
