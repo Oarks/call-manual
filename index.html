@@ -8,7 +8,7 @@
   <title>電話対応マニュアル</title>
   <style>
     * { font-family: "Zen Kaku Gothic New", sans-serif; font-style: normal; font-weight: 500; }
-    body { font-family: "Noto Sans JP", sans-serif; margin: 20px; }
+    body { font-family: "Noto Sans JP", sans-serif; display: flex; flex-flow: column; align-items: center; background-color: #F8EEE9;}
     .tabs, .sub-tabs { display: flex; gap: 10px; margin-bottom: 10px; }
     button { padding: 5px 10px; cursor: pointer; }
     .tab-content { display: none; }
@@ -17,7 +17,17 @@
     td{
     vertical-align: baseline;
     font-size: 0.8rem;
+    background-color: #FFFFFF;
     }
+
+    th {
+      background-color: #FFFFFF;
+    }
+
+    .tabs {
+      width: 100%;
+    }
+
     p{
         font-size: 0.8rem;
     }
@@ -28,7 +38,21 @@
     }
 
     .left-pane {
-    flex: 3; /* 約3/4 */
+    flex: 1.5; /* 約3/4 */
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    align-items: center;
+    }
+
+    .center-pane {
+      flex: 1.5;
+    }
+
+    .point-container {
+      position: fixed;
+      height: 600px;
+      overflow: scroll;
     }
 
     .right-pane {
@@ -41,10 +65,23 @@
     height: 500px;
     resize: vertical;
     }
+
+    .title {
+      height: 30px;
+    }
+
+    .point {
+      margin-top: 30px;
+      width: 200px;
+    }
+
+    .flow {
+      width: 350px;
+    }
   </style>
 </head>
 <body>
-
+<div class="container" style="display: flex; flex-flow: column; align-items: center;">
   <h1>📞 電話対応マニュアル</h1>
 
   <!-- メインタブ -->
@@ -114,7 +151,7 @@
   </div>
 
   <!-- 購入者用 -->
-  <div id="customer" class="tab-content">
+  <div id="customer" class="tab-content" >
     <h2>購入者用マニュアル</h2>
 
     <!-- サブタブ -->
@@ -130,13 +167,20 @@
 
     <!-- 各サブコンテンツ -->
     <div id="defect-exchange" class="tab-content sub-content">
-      <h3>不良（交換）</h3>
       <div class="flex-container">
         <!-- 左：PDF表示 -->
         <div class="left-pane">
-          <iframe src="不良・破損_交換.pdf" width="100%" height="600px" style="border: none;"></iframe>
-          <iframe src="送り間違い_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
-          <iframe src="送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <img class="title" src="./imgs/不良（交換）/不良（交換）.png" alt="">
+          <img class="flow" src="./imgs/不良（交換）/不良（交換）-1.png" alt="">
+          <iframe src="./pdfs/不良・破損_交換.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/送り間違い_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+
+        <div class="center-pane">
+          <div class="point-container">
+            <img class="point" src="./imgs/不良（交換）/要確認ポイントまとめ.png" alt="">
+          </div>
         </div>
     
         <!-- 右：メモ -->
@@ -150,13 +194,20 @@
     </div>
 
     <div id="defect-return" class="tab-content sub-content">
-      <h3>不良（返品）</h3>
       <div class="flex-container">
         <!-- 左：PDF表示 -->
         <div class="left-pane">
-            <iframe src="不良・破損_返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
-            <iframe src="送り間違い_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
-            <iframe src="送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <img class="title" src="./imgs/不良（返品）/不良（返品）-1.png" alt="">
+          <img class="flow" src="./imgs/不良（返品）/不良（返品）.png" alt="">
+          <iframe src="./pdfs/不良・破損_返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/送り間違い_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+
+        <div class="center-pane">
+          <div class="point-container">
+            <img class="point" src="./imgs/不良（返品）/要確認ポイントまとめ.png" alt="">
+          </div>
         </div>
     
         <!-- 右：メモ -->
@@ -170,13 +221,20 @@
     </div>
 
     <div id="mistake-exchange" class="tab-content sub-content">
-      <h3>送り間違い（交換）</h3>
       <div class="flex-container">
         <!-- 左：PDF表示 -->
         <div class="left-pane">
-          <iframe src="送り間違い_交換.pdf" width="100%" height="600px" style="border: none;"></iframe>
-            <iframe src="送り間違い_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
-            <iframe src="送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <img class="title" src="./imgs/送り間違い（交換）/送り間違い（交換）.png" alt="">
+          <img class="flow" src="./imgs/送り間違い（交換）/送り間違い（交換）-1.png" alt="">
+          <iframe src="./pdfs/送り間違い_交換.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/送り間違い_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+
+        <div class="center-pane">
+          <div class="point-container">
+            <img class="point" src="./imgs/送り間違い（交換）/要確認ポイントまとめ.png" alt="">
+          </div>
         </div>
     
         <!-- 右：メモ -->
@@ -190,13 +248,20 @@
     </div>
 
     <div id="mistake-return" class="tab-content sub-content">
-      <h3>送り間違い（返品）</h3>
       <div class="flex-container">
         <!-- 左：PDF表示 -->
         <div class="left-pane">
-          <iframe src="送り間違い_返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
-            <iframe src="送り間違い_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
-            <iframe src="送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <img class="title" src="./imgs/送り間違い（返品）/送り間違い（返品）-1.png" alt="">
+          <img class="flow" src="./imgs/送り間違い（返品）/送り間違い（返品）.png" alt="">
+          <iframe src="./pdfs/送り間違い_返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/送り間違い_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/送り間違い_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+
+        <div class="center-pane">
+          <div class="point-container">
+            <img class="point" src="./imgs/送り間違い（返品）/要確認ポイントまとめ.png" alt="">
+          </div>
         </div>
     
         <!-- 右：メモ -->
@@ -210,14 +275,21 @@
     </div>
 
     <div id="return" class="tab-content sub-content">
-      <h3>返品</h3>
       <div class="flex-container">
         <!-- 左：PDF表示 -->
         <div class="left-pane">
-          <iframe src="返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
-          <iframe src="返品_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
-          <iframe src="返品_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
-          <iframe src="返品_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <img class="title" src="./imgs/お客様都合の返品/お客様都合の返品の流れ.png" alt="">
+          <img class="flow" src="./imgs/お客様都合の返品/お客様都合の返品の流れ-1.png" alt="">
+          <iframe src="./pdfs/返品.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/返品_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/返品_3.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          <iframe src="./pdfs/返品_4.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+
+        <div class="center-pane">
+          <div class="point-container">
+            <img class="point" src="./imgs/お客様都合の返品/要確認ポイントまとめ.png" alt="">
+          </div>
         </div>
     
         <!-- 右：メモ -->
@@ -231,12 +303,19 @@
     </div>
 
     <div id="size-color" class="tab-content sub-content">
-        <h3>サイズ・カラー交換</h3>
         <div class="flex-container">
           <!-- 左：PDF表示 -->
           <div class="left-pane">
-            <iframe src="サイズ・カラー交換-1.pdf" width="100%" height="600px" style="border: none;"></iframe>
-            <iframe src="サイズ・カラー交換_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <img class="title" src="./imgs/サイズ・カラー交換/サイズ・カラー交換の流れ-1.png" alt="">
+            <img class="flow" src="./imgs/サイズ・カラー交換/サイズ・カラー交換の流れ.png" alt="">
+            <iframe src="./pdfs/サイズ・カラー交換-1.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="./pdfs/サイズ・カラー交換_2.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          </div>
+
+          <div class="center-pane">
+            <div class="point-container">
+              <img class="point" src="./imgs/サイズ・カラー交換/要確認ポイントまとめ.png" alt="">
+            </div>
           </div>
       
           <!-- 右：メモ -->
@@ -254,8 +333,14 @@
         <div class="flex-container">
           <!-- 左：PDF表示 -->
           <div class="left-pane">
-            <iframe src="共通.pdf" width="100%" height="600px" style="border: none;"></iframe>
-            <iframe src="その他.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="./pdfs/共通.pdf" width="100%" height="600px" style="border: none;"></iframe>
+            <iframe src="./pdfs/その他.pdf" width="100%" height="600px" style="border: none;"></iframe>
+          </div>
+
+          <div class="center-pane">
+            <div class="point-container">
+              <img class="point" src="./imgs/不良（交換）/要確認ポイントまとめ.png" alt="">
+            </div>
           </div>
       
           <!-- 右：メモ -->
@@ -269,7 +354,7 @@
     </div>
       
   </div>
-
+</div>
   <script>
     const switchTab = (id) => {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
